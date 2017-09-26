@@ -1,9 +1,9 @@
 # General Plugin Info do not edit
 
 base   changes
-author Andreas Gohr
-email  dokuwiki@cosmocode.de
-date   2017-04-15
+author Alexander Sulfrian
+email  alex@spline.inf.fu-berlin.de
+date   2017-09-26
 name   Changes Plugin
 desc   List the most recent changes of the wiki
 url    http://www.dokuwiki.org/plugin:changes
