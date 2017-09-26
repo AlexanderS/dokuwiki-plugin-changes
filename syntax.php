@@ -411,6 +411,15 @@ class syntax_plugin_changes extends DokuWiki_Syntax_Plugin {
 
             $R->listitem_open(1);
             $R->listcontent_open();
+            if($flags['diff']) {
+                if (trim($change['extra']) != 'media' && @file_exists(wikiFN($change['id']))) {
+                    $R->doc .= '<a href="'.wl($change['id'], array('do' => 'diff')).'" class="diff_link">' .
+                        '<img src="/lib/images/diff.png" width="15" height="11" '.
+                            'title="'.hsc($this->getLang('diff_title')).'" '.
+                            'alt="'.hsc($this->getLang('diff_alt')).'"/>' .
+                    '</a> ';
+                }
+            }
             if(trim($change['extra']) == 'media') {
                 $R->internalmedia(':' . $change['id'], null, null, false, 'navigation');
             } else {
@@ -442,7 +451,7 @@ class syntax_plugin_changes extends DokuWiki_Syntax_Plugin {
      * @return array
      */
     protected function parseSimpleListFlags($flags) {
-        $outFlags = array('summary' => true, 'signature' => false, 'dayheaders' => false);
+        $outFlags = array('summary' => true, 'signature' => false, 'dayheaders' => false, 'diff' => false);
         if(!empty($flags)) {
             foreach($flags as $flag) {
                 if(array_key_exists($flag, $outFlags)) {
