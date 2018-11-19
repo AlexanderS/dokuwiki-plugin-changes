@@ -3,7 +3,7 @@
 base   changes
 author Alexander Sulfrian
 email  alex@spline.inf.fu-berlin.de
-date   2017-09-26
+date   2018-11-19
 name   Changes Plugin
 desc   List the most recent changes of the wiki
 url    http://www.dokuwiki.org/plugin:changes
